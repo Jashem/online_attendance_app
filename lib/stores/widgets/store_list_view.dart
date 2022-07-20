@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_attendance_app/attendance/view/attendance_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../bloc/stores_bloc/stores_bloc.dart';
@@ -69,6 +70,9 @@ class _StoreListViewState extends State<StoreListView> {
           itemBuilder: (context, index) {
             final store = widget.stores[index];
             return ListTile(
+              onTap: () {
+                Navigator.of(context).push(AttendancePage.route());
+              },
               title: Text(store.name),
               subtitle: Text(store.address),
             );
